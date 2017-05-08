@@ -17,4 +17,4 @@ nessusor.exe -path "d:\nessus" -type txt
 
 
 有啥bug欢迎反馈~ 
-邮箱:stone@sec.dog
+
