@@ -54,19 +54,83 @@ def csv_to_excel(vul_names, new_nessus, file_name= 'result'):
 
 
     #写入Excel操作
-    for row in row_info:
-        for row_num in xrange(len(row_info) + 1):
-            for col_num in xrange(len(cols_name)):
-                    if row_num == 0:
-                        try:
-                            wsheet.write(row_num, col_num, cols_name[col_num], col_style)
-                        except:
-                            pass
-                    else:
-                        try:
-                            wsheet.write(row_num, col_num, row[col_num], row_style)
-                            wsheet.row(col_num).set_style(style)
-                            wsheet.col(col_num).width = 0x2400 + col_num
-                        except:
-                            pass
+    if len(row_info) == 1:
+        for row in row_info:
+            for row_num in xrange(len(row_info) + 1):
+                for col_num in xrange(len(cols_name)):
+                        if row_num == 0:
+                            try:
+                                wsheet.write(row_num, col_num, cols_name[col_num], col_style)
+                            except:
+                                pass
+                        else:
+                            try:
+                                wsheet.write(row_num, col_num, row[col_num], row_style)
+                                wsheet.row(col_num).set_style(style)
+                                wsheet.col(col_num).width = 0x2400 + col_num
+                            except:
+                                pass
+    else:
+        r = 0
+        # print row_info[0][0]
+        for line in row_info:
+            # print u'遍历中文漏洞 ', line
+            # print u'打印列数 ', len(cols_name)
+            for c in xrange(len(cols_name)):
+
+                if r == 0:
+                    try:
+                        wsheet.write(r, c, cols_name[c], col_style)
+                    except:
+                        pass
+                elif c == 0:
+                    try:
+                        wsheet.write(r, c, line[c], row_style)
+                        wsheet.row(c).set_style(style)
+                        wsheet.col(c).width = 0x2400 + c
+                    except:
+                        pass
+                elif c == 1:
+                    try:
+                        wsheet.write(r, c, line[c], row_style)
+                        wsheet.row(c).set_style(style)
+                        wsheet.col(c).width = 0x0fa0 + c
+                    except:
+                        pass
+                elif c == 2:
+                    try:
+                        wsheet.write(r, c, line[c], row_style)
+                        wsheet.row(c).set_style(style)
+                        wsheet.col(c).width = 0x0fa0 + c
+                    except:
+                        pass
+                elif c == 3:
+                    try:
+                        wsheet.write(r, c, line[c], row_style)
+                        wsheet.row(c).set_style(style)
+                        wsheet.col(c).width = 0x0fa0 + c
+                    except:
+                        pass
+                elif c == 4:
+                    try:
+                        wsheet.write(r, c, line[c], row_style)
+                        wsheet.row(c).set_style(style)
+                        wsheet.col(c).width = 0x3c00 + c
+                    except:
+                        pass
+                elif c == 5:
+                    try:
+                        wsheet.write(r, c, line[c], row_style)
+                        wsheet.row(c).set_style(style)
+                        wsheet.col(c).width = 0x3c00 + c
+                    except:
+                        pass
+                elif c == 6:
+                    try:
+                        wsheet.write(r, c, line[c], row_style)
+                        wsheet.row(c).set_style(style)
+                        wsheet.col(c).width = 0x3c00 + c
+                    except:
+                        pass
+            r += 1
     wbook.save(file_name+'.xls')
