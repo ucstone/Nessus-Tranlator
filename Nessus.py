@@ -100,7 +100,7 @@ if __name__ == '__main__':
                 # info(list(row))
                 new_nessus.append(list(row))
 
-        excel = Excel(output + '.xlsx', '/Users/m1k3', new_nessus)
+        excel = Excel(output + '.xls', '/Users/m1k3', new_nessus)
         excel.write_data()
     except (Exception,KeyboardInterrupt) as e:
         error(e)
