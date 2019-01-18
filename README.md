@@ -13,4 +13,6 @@ http://api.fanyi.baidu.com/api/trans/product/index
 nessusor.py -p /Users/nessus -s  res
 保存结果不用加后缀xlsx
 
+TIPS：代码用Python3.7写的，不要用py2的环境运行
+
 
